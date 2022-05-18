@@ -20,7 +20,8 @@ SessionLensActions.delete_session = function(prompt_bufnr)
   actions.close(prompt_bufnr)
   vim.defer_fn(function ()
     AutoSession.DeleteSession(selection.path)
-  end, 50)
+    vim.cmd("SearchSession")
+  end, 0)
 end
 
 return SessionLensActions
